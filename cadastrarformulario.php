@@ -28,7 +28,7 @@ include_once("pgbanco.php");
              ?>
         </select>
         <label for="n3">Valor: R$ </label>
-        <input type="texte" name="n3" id="n3" placeholder="Modelo 15427,45"><br><br><br>
+        <input type="text" name="n3" id="n3" placeholder="Modelo 15427,45"><br><br><br>
 
         <label for="n4">Quantidade: </label>
         <input type="number" name="n4" id="n4"> 

@@ -7,7 +7,7 @@ $val = isset($_POST['n3']) ? $_POST['n3'] : null;
 $quant = isset($_POST['n4']) ? $_POST['n4'] : null;
 $med = isset($_POST['n5']) ? $_POST['n5'] : null;
 
-if ($nome == null || $cat == null || $val == null || $quant == null || $med == null) {
+if ($nome == null || empty($cat) || $val == null || $quant == null || $med == null) {
     ?>
     <script>
         var a = confirm("Campo vazio. Deseja voltar à página anterior?");
@@ -28,8 +28,8 @@ if ($nome == null || $cat == null || $val == null || $quant == null || $med == n
 
     if ($resultado->num_rows > 0) {
         $exibir = $resultado->fetch_assoc();
-        $novaQuantidade = $exibir['quantidade']; + $quant;
-        $novoValor = $exibir['valor']; + $val;
+        $novaQuantidade = $exibir['quantidade'] + $quant;
+        $novoValor = $exibir['valor'] + $val;
         $sql = $conn->prepare("UPDATE produtos SET quantidade = ?, valor = ? WHERE nmProduto = ? AND categoria_id = ?");
         $sql->bind_param("ddsi", $novaQuantidade, $novoValor, $nome, $cat);
     } else {
